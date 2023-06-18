@@ -1,10 +1,11 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Typography, Table, TableContainer, TableHead, TableRow, TableCell, TableBody, IconButton, Box, TablePagination } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
 import useSettings from '../../hooks/useSettings';
 import Page from '../../components/Page';
 import { useNavigate } from 'react-router-dom';
 import brandsData from "../../json/brands.json"
+import axios from 'axios';
 
 
 const rowsPerPageOptions = [5, 10, 25];
@@ -17,9 +18,18 @@ export default function BrandList() {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    // Load the brands data from the JSON file
-    setBrands(brandsData);
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('/brands');
+      console.log(response)
+      setBrands(response.data);
+    } catch (error) {
+      console.error('Error getting brands:', error);
+    }
+  };
 
   const handleAddBrand = () => {
     navigate('/brands/create');

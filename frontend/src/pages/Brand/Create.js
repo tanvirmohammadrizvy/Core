@@ -4,12 +4,12 @@ import { Container, Typography, Box, IconButton, TextField, Button } from '@mui/
 import { Add, ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function BrandCreate() {
-
   const { themeStretch } = useSettings();
-
   const navigate = useNavigate();
   const [brandName, setBrandName] = useState('');
   const [brandUrl, setBrandUrl] = useState('');
@@ -18,11 +18,27 @@ export default function BrandCreate() {
     brandUrl: false,
   });
 
+  const handleSuccess = () => {
+    toast.success('Brand created successfully', {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000, // Notification will automatically close after 2 seconds
+    });
+  
+    navigate('/brands');
+  };
+  
+  const handleError = () => {
+    toast.error('Failed to create brand', {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000, // Notification will automatically close after 2 seconds
+    });
+  };
+
   const handleGoBack = () => {
     navigate('/brands');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
 
     // Validate input fields
@@ -46,9 +62,16 @@ export default function BrandCreate() {
     }
 
     // Handle form submission logic here
-    console.log('Brand Name:', brandName);
-    console.log('Brand URL:', brandUrl);
+    try {
+      const response = await axios.post('/brands', { brandName, brandUrl });
+      console.log('Brand created:', response.data);
+      handleSuccess(); // Show success notification and redirect to brands page
+    } catch (error) {
+      console.error('Error creating brand:', error);
+      handleError(); // Show error notification
+    }
   };
+
 
   const isValidUrl = (url) => {
     try {
