@@ -75,7 +75,7 @@ export default function BrandCreate() {
 
   const isValidUrl = (url) => {
     try {
-      new URL(`https://${url}`);
+      new URL(`https://${url}.com`);
       return true;
     } catch (error) {
       return false;
@@ -114,7 +114,6 @@ export default function BrandCreate() {
               error={errors.brandUrl}
               helperText={errors.brandUrl && 'Please enter a valid URL'}
             />
-
             <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>

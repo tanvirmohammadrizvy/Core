@@ -27,17 +27,10 @@ export default function Router() {
       children: [
         { path: 'brands', element: <BrandList to="brands" /> },
         { path: 'brands/create', element: <BrandCreate /> }, 
+        { path: 'brands/:id', element: <EditBrand /> }, 
       ],
     },
-    {
-      path: '*',
-      element: <LogoOnlyLayout />,
-      children: [
-        { path: '404', element: <NotFound /> },
-        { path: '*', element: <Navigate to="/404" replace /> },
-      ],
-    },
-    { path: '*', element: <Navigate to="/404" replace /> },
+    
   ]);
 }
 
@@ -47,3 +40,4 @@ const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // Brand Section
 const BrandList = Loadable(lazy(() => import('../pages/Brand/List')))
 const BrandCreate = Loadable(lazy(() => import('../pages/Brand/Create')))
+const EditBrand = Loadable(lazy(() => import('../pages/Brand/Edit')))

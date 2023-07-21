@@ -35,6 +35,10 @@ export default function BrandList() {
     navigate('/brands/create');
   };
 
+  const handleEditBrand = (id) => {
+    navigate(`/brands/${id}`);
+  };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -81,7 +85,7 @@ export default function BrandList() {
                   <TableCell>{brand.url}</TableCell>
                   <TableCell>
                     {/* Edit Button */}
-                    <IconButton color="primary" aria-label="Edit">
+                    <IconButton color="primary" aria-label="Edit" onClick={() => handleEditBrand(brand?._id)}> 
                       <Edit />
                     </IconButton>
 
