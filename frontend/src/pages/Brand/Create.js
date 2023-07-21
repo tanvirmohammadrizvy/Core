@@ -40,6 +40,8 @@ export default function BrandCreate() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
+    navigate('/brands');
+    return;
 
     // Validate input fields
     let hasError = false;

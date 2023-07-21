@@ -4,7 +4,7 @@ import { Edit, Delete, Add } from '@mui/icons-material';
 import useSettings from '../../hooks/useSettings';
 import Page from '../../components/Page';
 import { useNavigate } from 'react-router-dom';
-import brandsData from "../../json/brands.json"
+import brandsData from "../../Fake/brands.json"
 import axios from 'axios';
 
 
@@ -23,9 +23,8 @@ export default function BrandList() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('/brands');
-      console.log(response)
-      setBrands(response.data);
+      //const response = await axios.get('/brands');
+      setBrands(brandsData?.brands);
     } catch (error) {
       console.error('Error getting brands:', error);
     }
@@ -81,11 +80,11 @@ export default function BrandList() {
                 : brands
               ).map((brand, index) => (
                 <TableRow key={index}>
-                  <TableCell>{brand.name}</TableCell>
-                  <TableCell>{brand.url}</TableCell>
+                  <TableCell>{brand.BrandName}</TableCell>
+                  <TableCell>{brand.BrandUrl}</TableCell>
                   <TableCell>
                     {/* Edit Button */}
-                    <IconButton color="primary" aria-label="Edit" onClick={() => handleEditBrand(brand?._id)}> 
+                    <IconButton color="primary" aria-label="Edit" onClick={() => handleEditBrand(brand?.BrandId)}> 
                       <Edit />
                     </IconButton>
 

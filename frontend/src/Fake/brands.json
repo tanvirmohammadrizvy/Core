@@ -1,0 +1,79 @@
+{
+    "brands": [
+      {
+        "BrandName": "Acme Electronics",
+        "BrandUrl": "https://www.acmeelectronics.com",
+        "BrandId": "B001"
+      },
+      {
+        "BrandName": "BlueTech",
+        "BrandUrl": "https://www.bluetech.com",
+        "BrandId": "B002"
+      },
+      {
+        "BrandName": "Cosmo Apparel",
+        "BrandUrl": "https://www.cosmoapparel.com",
+        "BrandId": "B003"
+      },
+      {
+        "BrandName": "DigiGadgets",
+        "BrandUrl": "https://www.digigadgets.com",
+        "BrandId": "B004"
+      },
+      {
+        "BrandName": "EcoLiving",
+        "BrandUrl": "https://www.ecoliving.com",
+        "BrandId": "B005"
+      },
+      {
+        "BrandName": "Fusion Footwear",
+        "BrandUrl": "https://www.fusionfootwear.com",
+        "BrandId": "B006"
+      },
+      {
+        "BrandName": "GigaTech Solutions",
+        "BrandUrl": "https://www.gigatechsolutions.com",
+        "BrandId": "B007"
+      },
+      {
+        "BrandName": "Harmony Home",
+        "BrandUrl": "https://www.harmonyhome.com",
+        "BrandId": "B008"
+      },
+      {
+        "BrandName": "Infinite Sports",
+        "BrandUrl": "https://www.infinitesports.com",
+        "BrandId": "B009"
+      },
+      {
+        "BrandName": "Jade Jewelry",
+        "BrandUrl": "https://www.jadejewelry.com",
+        "BrandId": "B010"
+      },
+      {
+        "BrandName": "Karma Fitness",
+        "BrandUrl": "https://www.karmafitness.com",
+        "BrandId": "B011"
+      },
+      {
+        "BrandName": "Luna Cosmetics",
+        "BrandUrl": "https://www.lunacosmetics.com",
+        "BrandId": "B012"
+      },
+      {
+        "BrandName": "Mystic Outdoors",
+        "BrandUrl": "https://www.mysticoutdoors.com",
+        "BrandId": "B013"
+      },
+      {
+        "BrandName": "Nimbus Travel",
+        "BrandUrl": "https://www.nimbustravel.com",
+        "BrandId": "B014"
+      },
+      {
+        "BrandName": "Omega Watches",
+        "BrandUrl": "https://www.omegawatches.com",
+        "BrandId": "B015"
+      }
+    ]
+  }

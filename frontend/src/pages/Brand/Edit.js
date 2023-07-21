@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { idText } from 'typescript';
+import brandsData from "../../Fake/brands.json"
 
 export default function BrandCreate() {
   const { themeStretch } = useSettings();
@@ -23,39 +23,18 @@ export default function BrandCreate() {
   useEffect(() => {
     fetchData()
   },[])
-
-  const handleSuccess = () => {
-    toast.success('Brand created successfully', {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000, // Notification will automatically close after 2 seconds
-    });
-  
-    navigate('/brands');
-  };
-  
-  const handleError = () => {
-    toast.error('Failed to create brand', {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000, // Notification will automatically close after 2 seconds
-    });
-  };
-
   const handleGoBack = () => {
     navigate('/brands');
   };
 
   const fetchData = async() => {
-    try {
-      const response = await axios.get(`/brands`,id);
-      response?.data?.map((element) => {
-        if(element?._id === id) {
-          setBrandName(element?.name);
-          setBrandUrl(element?.url);
-        }
-      })
-    } catch (error) {
-
-    }
+    let response = brandsData?.brands;
+    response?.map((element) => {
+      if(element?.BrandId === id){
+        setBrandName(element?.BrandName)
+        setBrandUrl(element?.BrandUrl)
+      }
+    })
   }
 
   const handleSubmit = async(event) => {
@@ -77,7 +56,7 @@ export default function BrandCreate() {
       <Container maxWidth="sm">
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
           <Typography variant="h4" component="h1">
-            Create Brand
+            Edit Brand
           </Typography>
           <IconButton color="primary" aria-label="Go Back" onClick={handleGoBack}>
             <ArrowBack />
